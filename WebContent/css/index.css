@@ -1,0 +1,235 @@
+@CHARSET "ISO-8859-1";
+#text
+{
+width:100px;
+}
+
+/*CSS for dropdown box*/
+select
+{
+width: 300px;
+height: 29px;
+border-radius: 3px;
+border: 1px solid #CCC;
+font-weight: 200;
+font-size: 15px;
+font-family: Verdana;
+box-shadow: 1px 1px 5px #CCC;
+}
+select: hover
+{
+width: 300px;
+height: 29px;
+border-radius: 3px;
+border: 1px solid #CCC;
+font-weight: 200;
+font-size: 15px;
+font-family: Verdana;
+box-shadow: 1px 1px 5px #CCC;
+}
+
+/*CSS for input textbox and password*/
+
+input[type='text'], input[type='password']
+{
+width: 300px;
+height: 20px;
+border-radius: 3px;
+border: 1px solid #CCC;
+padding: 8px;
+padding-left: 10px;
+font-weight: 200;
+font-size: 15px;
+font-family: Verdana;
+box-shadow: 1px 1px 5px #CCC;
+}
+
+/* input[type='text']:hover, input[type='password']:hover
+{
+width: 400px;
+height: 29px;
+border-radius: 3px;
+border: 1px solid #aaa;
+padding: 8px;
+font-weight: 200;
+font-size: 15px;
+font-family: Verdana;
+box-shadow: 1px 1px 5px #CCC;
+} */
+
+/*CSS for textarea*/
+
+/* textarea
+{
+width: 200px;
+height: 90px;
+border-radius: 3px;
+border: 1px solid #CCC;
+padding: 8px;
+font-weight: 200;
+font-size: 15px;
+font-family: Verdana;
+box-shadow: 1px 1px 5px #CCC;
+}
+textarea:hover
+{
+width: 200px;
+height: 90px;
+border-radius: 3px;
+border: 1px solid #aaa;
+padding: 8px;
+font-weight: 200;
+font-size: 15px;
+font-family: Verdana;
+box-shadow: 1px 1px 5px #CCC;
+} */
+
+/*input type for submit button*/
+.button2 {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: center;	
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button2:hover {background-color: #3e8e41}
+
+
+.button2:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.minibtn {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: center;	
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.minibtn:hover {background-color: #3e8e41}
+
+.minibtn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+input[type='button']
+{
+width: 150px;
+height: 34px;
+border: 2px solid white;
+background-color:#CCC;
+}
+input[type='submit']:hover
+{
+width: 150px;
+height: 34px;
+border: 2px solid white;
+background-color:#333333;
+color:#fff;
+}
+
+#mask{
+    z-index: 10;
+    position: fixed;
+    display: none; /* removes the element completely from the document, it doesn't take up any space. */
+    /* visibility: hidden; -- hides the element, but it still takes up space in the layout. */
+   /*  background: transparent;
+    background-color: #aaa; */
+    background: rgba(255,255,255,0.5);
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+
+}
+
+#pop {
+   z-index:500;
+   position:absolute;
+ /*   border: 1px solid #111111; */
+/* CSS by GenerateCSS.com */
+-webkit-box-shadow: inset 0px 0px 41px 41px #ffffff;
+box-shadow: inset 0px 0px 41px 41px #ffffff;
+/* CSS by GenerateCSS.com */
+/* CSS by GenerateCSS.com */
+-webkit-border-radius: 10px 10px 10px 10px;
+border-radius: 10px 10px 10px 10px;
+/* CSS by GenerateCSS.com */
+/* CSS by GenerateCSS.com */
+-webkit-box-shadow: inset 0px 0px 0px 100px #FFA500;
+box-shadow: inset 100px 100px 100px 100px #FFA500;
+
+/* CSS by GenerateCSS.com */
+outline: 3px solid #000000;
+outline-offset: 0px;
+   text-align:center;
+   background: #FFA500;
+  
+}
+
+#close {
+   float:right;
+   margin-right:290px;
+   cursor:pointer;
+   font:Verdana, Arial, Helvetica, sans-serif;
+   font-size:30px;
+   font-weight:bold;
+   color:black;
+   background-color:#666666;
+   width:45px;
+   position:relative;
+   margin-top:15px;
+   text-align:center;
+}
+
+#textstyle1
+{
+
+	/* CSS by GenerateCSS.com */
+font-family: Arial Black;
+display: block;
+width:400px
+color: #000000;
+margin-right:220px;
+font-size: 20px;
+letter-spacing: 0px;
+word-spacing: 0px;
+line-height: 0px;
+
+text-align: center;
+
+}
+
+#textstyle
+{
+
+	/* CSS by GenerateCSS.com */
+font-family: Arial Black;
+color: #000000;
+font-size: 15px;
+letter-spacing: 0px;
+word-spacing: 0px;
+line-height: 0px;
+text-align: left;
+}
+

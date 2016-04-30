@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+        
+    <Resource name="jdbc/sqlserv"
+    auth="Container"
+    driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    type="javax.sql.DataSource"
+    username="ridhi"
+    password="ridhi129"
+    url="jdbc:sqlserver://localhost;DatabaseName=SFPark;SelectMethod=cursor;"
+    maxActive="8"
+     /> 
+</Context>
