@@ -5,8 +5,8 @@
     auth="Container"
     driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
     type="javax.sql.DataSource"
-    username="skruti"
-    password="kruti10"
+    username="ridhi"
+    password="ridhi129"
     url="jdbc:sqlserver://localhost;DatabaseName=Team3_SFPark;SelectMethod=cursor;"
     maxActive="8"
      /> 
