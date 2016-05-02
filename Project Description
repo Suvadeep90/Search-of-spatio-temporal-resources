@@ -1,0 +1,4 @@
+The aim of these simulations is to compare and contrast different algorithms, 
+with different levels of information access to find parking spots in real time. 
+The setup is done for the city of San Francisco, CA. We use the data released by the parking authorities, 
+ranging over a month, given with timestamps accurate to second granularity
