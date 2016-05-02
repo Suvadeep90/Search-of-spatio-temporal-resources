@@ -7,20 +7,35 @@ Required downloads:
 The Folder => ReadyBuilds contains the Team3_SFPark.bak and CS581_SFPark_Team3_2016.war.
 
 Steps to configure SQL Sever 2012:
+
 a.	Install Microsoft SQL Server 2012 with default configurations.  
+
 b. Copy the database file (Team3_SFPark.bak) of the project your account folder which is located in the C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Backup\ 
+
 c.	Connect to the database in the SQL server using web authentication mode. 
+
 d.	Expand the project and right click the Databases and select restore Database option. 
+
 e.	In the General tab, select Device option and then select the “…” option on right side.
+
 f.	A dialog box appears, click on Add button. 
+
 g.	Traverse to the path mentioned above and select “Team3_SFPark.bak” 
+
 h.	Click OK for all subsequent dialog boxes 
+
 i.	Disconnect the database and reconnect using web authentication or restart the database connect. 
+
 j.	Expand the project and then “Security” and right click on “Logins” and select “New Login…”
+
 k.	Select “SQL Server authentication” radio button and write name: “ridhi” and password: “ridhi129” and check all boxes as depicted in below diagram and then click on “OK”
+
 l.	Refresh security and then right click on the user “ridhi” and give the admin rights to this user. 
+
 m.	Right Click on the database and set authentication mode to both windows as well as SQL Server. 
+
 n.	Restart the database engine.
+
 o.	Database is now setup.
 
 Steps for running the application
