@@ -22,12 +22,12 @@ import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 
 import org.apache.catalina.connector.Request;
 
-import com.edu.uic.cs581.team3.algorithm.ImplementAlgorithm;
-import com.edu.uic.cs581.team3.beans.DataSet;
-import com.edu.uic.cs581.team3.beans.DistanceMap;
-import com.edu.uic.cs581.team3.beans.Points;
-import com.edu.uic.cs581.team3.beans.QuadAvailable;
-import com.edu.uic.cs581.team3.beans.Quadrant;
+import com.edu.uic.cs581.team3.algorithm.ProcessAlgorithm;
+import com.edu.uic.cs581.team3.beans.LocationDataSet;
+import com.edu.uic.cs581.team3.beans.LocationMapDistance;
+import com.edu.uic.cs581.team3.beans.LocationPoints;
+import com.edu.uic.cs581.team3.beans.BlockAvailableQuadrant;
+import com.edu.uic.cs581.team3.beans.BlockQuadrant;
 import com.edu.uic.cs581.team3.constants.ConstVariables;
 import com.edu.uic.cs581.team3.database.FetchPoints;
 import com.edu.uic.cs581.team3.database.ParkingChoosePoints;
@@ -78,7 +78,7 @@ public class RunAlgorithm extends HttpServlet {
 		System.out.println("Value of Iteration"+iteration);
 		
 		//creating object of ImplementAlgorithm
-		ImplementAlgorithm impl = new ImplementAlgorithm();
+		ProcessAlgorithm impl = new ProcessAlgorithm();
 		
 		HttpSession session = request.getSession();
 
@@ -92,17 +92,17 @@ public class RunAlgorithm extends HttpServlet {
 					points = points.replace(")","");
 					Double pointsLat = Double.parseDouble(points.split(",")[0]);
 					Double pointsLong = Double.parseDouble(points.split(",")[1]);
-					DistanceMap distanceMap = new Force().pointWeight(pointsLat,pointsLong, FetchPoints.point);
+					LocationMapDistance distanceMap = new Force().pointWeight(pointsLat,pointsLong, FetchPoints.point);
 					points = distanceMap.getPoint().getLatitude() + "," + distanceMap.getPoint().getLongitude();;
 					String currBlock =  session.getAttribute("currBlock") + "";
 					currBlock = session.getAttribute("blockID") + "," + currBlock;
 					session.setAttribute("blockID", currBlock);
-					Quadrant quad = new Quadrant();
-					ArrayList<QuadAvailable> q = new ArrayList<QuadAvailable>();
+					BlockQuadrant quad = new BlockQuadrant();
+					ArrayList<BlockAvailableQuadrant> q = new ArrayList<BlockAvailableQuadrant>();
 					q.addAll(quad.maxAvailable(pointsLat, pointsLong));
 					String Lat = "";
 					String Long = "";
-					for(QuadAvailable i : q)
+					for(BlockAvailableQuadrant i : q)
 					{
 						Lat = Lat + i.getC1().getLatitude() +  ", ";
 						Long = Long + i.getC1().getLongitude() + ", ";
@@ -125,7 +125,7 @@ public class RunAlgorithm extends HttpServlet {
 		{
 			//call to check intersection
 			System.out.println("Call check intersection");
-			intersection = impl.checkIntersection(request);
+			intersection = impl.callAndCheckIntersection(request);
 
 			if(!intersection.equalsIgnoreCase("")){
 				if(destination_Location != null || destination_Location!="undefined"){

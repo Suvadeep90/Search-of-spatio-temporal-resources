@@ -15,21 +15,21 @@ import com.edu.uic.cs581.team3.constants.ConstVariables;
 import com.edu.uic.cs581.team3.database.FetchPoints;
 import com.edu.uic.cs581.team3.database.Force;
 
-public class Quadrant {
+public class BlockQuadrant {
 
 	
-	private ArrayList<QuadAvailable> q1 = new ArrayList<QuadAvailable>();
-	private ArrayList<QuadAvailable> q2 = new ArrayList<QuadAvailable>();
-	private ArrayList<QuadAvailable> q3 = new ArrayList<QuadAvailable>();
-	private ArrayList<QuadAvailable> q4 = new ArrayList<QuadAvailable>();
-	QuadAvailable qq;
+	private ArrayList<BlockAvailableQuadrant> q1 = new ArrayList<BlockAvailableQuadrant>();
+	private ArrayList<BlockAvailableQuadrant> q2 = new ArrayList<BlockAvailableQuadrant>();
+	private ArrayList<BlockAvailableQuadrant> q3 = new ArrayList<BlockAvailableQuadrant>();
+	private ArrayList<BlockAvailableQuadrant> q4 = new ArrayList<BlockAvailableQuadrant>();
+	BlockAvailableQuadrant qq;
 	Statement stmt;
 	Connection con = null;
 	String selectCoordinates;
-	Coordinates c1;
+	LocationCoordinates c1;
 	private FetchPoints points = new FetchPoints();
 	
-	public Quadrant() {
+	public BlockQuadrant() {
 		// TODO Auto-generated constructor stub
 		//catch all the coordinates
 		points.getCoordinates();
@@ -55,7 +55,7 @@ public class Quadrant {
 		Double intersectionLong = longitude;
 				
 		
-		DistanceMap distanceMap = new Force().pointWeight(intersectionLat,intersectionLong, FetchPoints.point);
+		LocationMapDistance distanceMap = new Force().pointWeight(intersectionLat,intersectionLong, FetchPoints.point);
 		////system.out.println("distanceMap.getDist(): "+distanceMap.getDist());
 		if(distanceMap.getDist() < ConstVariables.Threshhold_Value)
 		{
@@ -85,8 +85,8 @@ public class Quadrant {
 				if(intersectionLat > rs.getDouble("latitude") && intersectionLong < rs.getDouble("longitude"))
 
 
-							c1 = new Coordinates();
-							qq = new QuadAvailable();
+							c1 = new LocationCoordinates();
+							qq = new BlockAvailableQuadrant();
 							c1.setLatitude(rs.getDouble("latitude"));
 							c1.setLongitude(rs.getDouble("longitude"));
 							qq.setC1(c1);
@@ -111,7 +111,7 @@ public class Quadrant {
 		Double intersectionLat = latitude;
 		Double intersectionLong = longitude;
 								
-		DistanceMap distanceMap = new Force().pointWeight(intersectionLat,intersectionLong, FetchPoints.point);
+		LocationMapDistance distanceMap = new Force().pointWeight(intersectionLat,intersectionLong, FetchPoints.point);
 		////system.out.println("distanceMap.getDist(): "+distanceMap.getDist());
 		if(distanceMap.getDist() < ConstVariables.Threshhold_Value)
 		{
@@ -143,8 +143,8 @@ public class Quadrant {
 				if(intersectionLat > rs.getDouble("latitude") && intersectionLong > rs.getDouble("longitude"))
 
 
-							c1 = new Coordinates();
-							qq = new QuadAvailable();
+							c1 = new LocationCoordinates();
+							qq = new BlockAvailableQuadrant();
 							c1.setLatitude(rs.getDouble("latitude"));
 							c1.setLongitude(rs.getDouble("longitude"));
 							qq.setC1(c1);
@@ -173,7 +173,7 @@ public class Quadrant {
 		Double intersectionLat = latitude;
 		Double intersectionLong = longitude;
 								
-		DistanceMap distanceMap = new Force().pointWeight(intersectionLat,intersectionLong, FetchPoints.point);
+		LocationMapDistance distanceMap = new Force().pointWeight(intersectionLat,intersectionLong, FetchPoints.point);
 		////system.out.println("distanceMap.getDist(): "+distanceMap.getDist());
 		if(distanceMap.getDist() < ConstVariables.Threshhold_Value)
 		{
@@ -204,8 +204,8 @@ public class Quadrant {
 				if(intersectionLat < rs.getDouble("latitude") && intersectionLong > rs.getDouble("longitude"))
 
 
-							c1 = new Coordinates();
-							qq = new QuadAvailable();
+							c1 = new LocationCoordinates();
+							qq = new BlockAvailableQuadrant();
 							c1.setLatitude(rs.getDouble("latitude"));
 							c1.setLongitude(rs.getDouble("longitude"));
 							qq.setC1(c1);
@@ -232,7 +232,7 @@ public class Quadrant {
 		Double intersectionLat = latitude;
 		Double intersectionLong = longitude;
 								
-		DistanceMap distanceMap = new Force().pointWeight(intersectionLat,intersectionLong, FetchPoints.point);
+		LocationMapDistance distanceMap = new Force().pointWeight(intersectionLat,intersectionLong, FetchPoints.point);
 		////system.out.println("distanceMap.getDist(): "+distanceMap.getDist());
 		if(distanceMap.getDist() < ConstVariables.Threshhold_Value)
 		{
@@ -263,8 +263,8 @@ public class Quadrant {
 
 
 
-							c1 = new Coordinates();
-							qq = new QuadAvailable();
+							c1 = new LocationCoordinates();
+							qq = new BlockAvailableQuadrant();
 							c1.setLatitude(rs.getDouble("latitude"));
 							c1.setLongitude(rs.getDouble("longitude"));
 							qq.setC1(c1);
@@ -284,7 +284,7 @@ public class Quadrant {
 	}
 	
 	
-	public ArrayList<QuadAvailable> maxAvailable(Double latitude, Double longitude)
+	public ArrayList<BlockAvailableQuadrant> maxAvailable(Double latitude, Double longitude)
 	{
 		int sum[] = new int[4];
 		
@@ -293,22 +293,22 @@ public class Quadrant {
 		thirdQuadrant(latitude,longitude);
 		forthQuadrant(latitude,longitude);
 		
-		for( QuadAvailable i : q1)
+		for( BlockAvailableQuadrant i : q1)
 		{
 			sum[0] += i.getAvailable();
 			
 		}
-		for( QuadAvailable i : q2)
+		for( BlockAvailableQuadrant i : q2)
 		{
 			sum[1] += i.getAvailable();
 			
 		}
-		for( QuadAvailable i : q3)
+		for( BlockAvailableQuadrant i : q3)
 		{
 			sum[2] += i.getAvailable();
 			
 		}
-		for( QuadAvailable i : q4)
+		for( BlockAvailableQuadrant i : q4)
 		{
 			sum[3] += i.getAvailable();
 			

@@ -1,7 +1,7 @@
 package com.edu.uic.cs581.team3.beans;
 
 
-public class Coordinates {
+public class LocationCoordinates {
 
 	private Double latitude;
 	private Double longitude;

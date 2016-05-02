@@ -1,6 +1,6 @@
 package com.edu.uic.cs581.team3.beans;
 
-public class Distance {
+public class LocationDistance {
 
 	private String text;
 

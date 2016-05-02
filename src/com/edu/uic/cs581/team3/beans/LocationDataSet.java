@@ -1,6 +1,6 @@
 package com.edu.uic.cs581.team3.beans;
 
-public class DataSet {
+public class LocationDataSet {
 
 	private double availability;
 	private double latitude;

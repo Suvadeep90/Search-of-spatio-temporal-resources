@@ -9,20 +9,20 @@ import java.util.ArrayList;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.edu.uic.cs581.team3.beans.Coordinates;
+import com.edu.uic.cs581.team3.beans.LocationCoordinates;
 
 public class ParkingChoosePoints {
 
 	
-public static ArrayList<Coordinates> midPoint;
+public static ArrayList<LocationCoordinates> midPoint;
 	
 	public void getCoordinates()
 	{
 		
 		
 		Statement stmt = null;
-		Coordinates cds2;
-		midPoint = new ArrayList<Coordinates>();
+		LocationCoordinates cds2;
+		midPoint = new ArrayList<LocationCoordinates>();
 
 			
 		Connection con = null;
@@ -45,7 +45,7 @@ public static ArrayList<Coordinates> midPoint;
 			ResultSet res2 = stmt.executeQuery(selectCoordinates);
 			while(res2.next())
 			{
-				cds2 = new Coordinates();
+				cds2 = new LocationCoordinates();
 				cds2.setLatitude(res2.getDouble("dest_block_latitude"));
 				cds2.setLongitude(res2.getDouble("dest_block_longitude"));
 				midPoint.add(cds2);

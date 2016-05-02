@@ -254,6 +254,8 @@
 						console.log("Calculated time elapsed: ",timeElapsed);
 						
 						document.getElementById("totalTimeTaken").innerHTML = "Slot acquired in: " + timeElapsed + " sec";
+						
+						alert('Parking slot found. Terminating the algorithm');
 					}
 
 					calculateRoute(start,end);

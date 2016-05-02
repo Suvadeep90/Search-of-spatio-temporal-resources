@@ -2,28 +2,28 @@ package com.edu.uic.cs581.team3.beans;
 
 public class Elements {
 
-	private Duration duration;
+	private TimeDuration duration;
 
-    private Distance distance;
+    private LocationDistance distance;
 
     private String status;
 
-    public Duration getDuration ()
+    public TimeDuration getDuration ()
     {
         return duration;
     }
 
-    public void setDuration (Duration duration)
+    public void setDuration (TimeDuration duration)
     {
         this.duration = duration;
     }
 
-    public Distance getDistance ()
+    public LocationDistance getDistance ()
     {
         return distance;
     }
 
-    public void setDistance (Distance distance)
+    public void setDistance (LocationDistance distance)
     {
         this.distance = distance;
     }

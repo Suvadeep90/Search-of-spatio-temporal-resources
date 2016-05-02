@@ -1,6 +1,6 @@
 package com.edu.uic.cs581.team3.beans;
 
-public class PojoObject
+public class LocationPojoObject
 {
     private String[][] distance_table;
 

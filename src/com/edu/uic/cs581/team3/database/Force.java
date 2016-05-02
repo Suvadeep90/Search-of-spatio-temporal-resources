@@ -2,24 +2,24 @@ package com.edu.uic.cs581.team3.database;
 
 import java.util.ArrayList;
 
-import com.edu.uic.cs581.team3.beans.Coordinates;
-import com.edu.uic.cs581.team3.beans.DistanceMap;
+import com.edu.uic.cs581.team3.beans.LocationCoordinates;
+import com.edu.uic.cs581.team3.beans.LocationMapDistance;
 import com.edu.uic.cs581.team3.constants.ConstVariables;
 
 
 public class Force {
 
 	
-	public DistanceMap pointWeight(Double latitude, Double longitude, ArrayList<Coordinates> point)
+	public LocationMapDistance pointWeight(Double latitude, Double longitude, ArrayList<LocationCoordinates> point)
 	{
-		DistanceMap d ;
+		LocationMapDistance d ;
 		Double dist;
-		ArrayList<DistanceMap> distPoint = new ArrayList<DistanceMap>();
-		DistanceMap coodinate = new DistanceMap();
+		ArrayList<LocationMapDistance> distPoint = new ArrayList<LocationMapDistance>();
+		LocationMapDistance coodinate = new LocationMapDistance();
 		
-		for(Coordinates i : point)
+		for(LocationCoordinates i : point)
 		{
-			d = new DistanceMap();
+			d = new LocationMapDistance();
 			dist=ConstVariables.Distance_Multiply * Math.sqrt(((i.getLongitude() - longitude)*(i.getLongitude() - longitude))
 					+((i.getLatitude() - latitude)*(i.getLatitude() - latitude)));
 			//d1.point.latitude = i.latitude;
@@ -39,7 +39,7 @@ public class Force {
 		coodinate.setDist(distPoint.get(0).getDist());
 		coodinate.getPoint().setLatitude(distPoint.get(0).getPoint().getLatitude());
 		coodinate.getPoint().setLongitude(distPoint.get(0).getPoint().getLongitude());
-		for(DistanceMap i : distPoint)
+		for(LocationMapDistance i : distPoint)
 		{
 			
 			if (dist > i.getDist())

@@ -10,21 +10,21 @@ import java.util.ArrayList;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.edu.uic.cs581.team3.beans.Coordinates;
+import com.edu.uic.cs581.team3.beans.LocationCoordinates;
 import com.edu.uic.cs581.team3.constants.ConstVariables;
 
 
 public class FetchPoints {
 
-	public static ArrayList<Coordinates> point;
+	public static ArrayList<LocationCoordinates> point;
 	
 	public void getCoordinates()
 	{
 		
 		
 		Statement stmt = null;
-		Coordinates cds;
-		point = new ArrayList<Coordinates>();
+		LocationCoordinates cds;
+		point = new ArrayList<LocationCoordinates>();
 
 			
 		Connection con = null;
@@ -48,7 +48,7 @@ public class FetchPoints {
 			ResultSet res = stmt.executeQuery(chooseCoordinates);
 			while(res.next())
 			{
-				cds = new Coordinates();
+				cds = new LocationCoordinates();
 				cds.setLatitude(res.getDouble("latitude"));
 				cds.setLongitude(res.getDouble("longitude"));
 				point.add(cds);

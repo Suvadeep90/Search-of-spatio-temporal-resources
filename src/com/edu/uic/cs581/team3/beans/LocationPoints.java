@@ -1,11 +1,11 @@
 package com.edu.uic.cs581.team3.beans;
 
-public class Points {
+public class LocationPoints {
 
 	private String start;
 	private String end;
 	
-	public Points()
+	public LocationPoints()
 	{
 		start = new String();
 		end = new String();

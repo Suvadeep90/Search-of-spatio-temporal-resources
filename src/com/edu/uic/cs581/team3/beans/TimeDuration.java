@@ -1,6 +1,6 @@
 package com.edu.uic.cs581.team3.beans;
 
-public class Duration {
+public class TimeDuration {
 
 	 private String text;
 

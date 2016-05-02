@@ -14,20 +14,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
-import com.edu.uic.cs581.team3.beans.DistanceMap;
-import com.edu.uic.cs581.team3.beans.QuadAvailable;
-import com.edu.uic.cs581.team3.beans.Quadrant;
+import com.edu.uic.cs581.team3.beans.LocationMapDistance;
+import com.edu.uic.cs581.team3.beans.BlockAvailableQuadrant;
+import com.edu.uic.cs581.team3.beans.BlockQuadrant;
 import com.edu.uic.cs581.team3.constants.ConstVariables;
 import com.edu.uic.cs581.team3.database.FetchPoints;
 import com.edu.uic.cs581.team3.database.ParkingChoosePoints;
 import com.edu.uic.cs581.team3.database.Force;
 
-public class ImplementAlgorithm {
+public class ProcessAlgorithm {
+	
+	/*
+	 * getting all the parking slots
+	 */
+	public String callCheckBlockQuadMidPoints(Double lat,Double lon){
+		
+		System.out.println("lat"+lat+"long"+lon);
+			String finalDestination = null;									
+			LocationMapDistance distanceMap = new Force().pointWeight(lat,lon, ParkingChoosePoints.midPoint);
+			if(distanceMap.getDist() < ConstVariables.Threshhold_Value)
+			{
+				finalDestination = distanceMap.getPoint().getLatitude() + "," + distanceMap.getPoint().getLongitude();				
+			}	
+			System.out.println("Final Destination:"+finalDestination);
+		return finalDestination;
+	
+	}
 	
 	/*
 	 * getting all the intersection co-ordinates on the path
 	 */
-	public String checkIntersection(HttpServletRequest request){
+	public String callAndCheckIntersection(HttpServletRequest request){
 		
 		String interSection = "";
 			
@@ -37,7 +54,7 @@ public class ImplementAlgorithm {
 			Double intersectionLat = Double.parseDouble(splitString[0].replace("(","").trim());
 			Double intersectionLong = Double.parseDouble(splitString[1].replace(")","").trim());
 									
-			DistanceMap distanceMap = new Force().pointWeight(intersectionLat,intersectionLong, FetchPoints.point);
+			LocationMapDistance distanceMap = new Force().pointWeight(intersectionLat,intersectionLong, FetchPoints.point);
 
 			if(distanceMap.getDist() < ConstVariables.Threshhold_Value)
 			{
@@ -48,22 +65,7 @@ public class ImplementAlgorithm {
 	
 	}
 	
-	/*
-	 * getting all the parking slots
-	 */
-	public String checkBlockMidPoint(Double lat,Double lon){
-		
-		System.out.println("lat"+lat+"long"+lon);
-			String finalDestination = null;									
-			DistanceMap distanceMap = new Force().pointWeight(lat,lon, ParkingChoosePoints.midPoint);
-			if(distanceMap.getDist() < ConstVariables.Threshhold_Value)
-			{
-				finalDestination = distanceMap.getPoint().getLatitude() + "," + distanceMap.getPoint().getLongitude();				
-			}	
-			System.out.println("Final Destination:"+finalDestination);
-		return finalDestination;
 	
-	}
 	
 	
 	//Distance based gravitational force algorithm
@@ -122,7 +124,7 @@ public class ImplementAlgorithm {
 			
 			System.out.println("Call to check block mid point");
 			String destination = null; 
-					destination = checkBlockMidPoint(destLat, destLong);
+					destination = callCheckBlockQuadMidPoints(destLat, destLong);
 			System.out.println("Destination after getting block mid point: "+destination);
 			
 			if(destination != null && destination != ""){
@@ -171,7 +173,7 @@ public class ImplementAlgorithm {
 		Double destLong = Double.parseDouble(destSplit[1].replace(")","").trim());
 			
 		System.out.println("Call check block mid point in Cost based Force");
-		String destination = checkBlockMidPoint(destLat, destLong);
+		String destination = callCheckBlockQuadMidPoints(destLat, destLong);
 		if(destination != null)
 		{
 		destLat = Double.parseDouble(destination.split(",")[0]);
@@ -274,7 +276,7 @@ public class ImplementAlgorithm {
 		
 		
 		System.out.println("inside greedy : check block midpoint");
-		String destination = checkBlockMidPoint(destLat, destLong);
+		String destination = callCheckBlockQuadMidPoints(destLat, destLong);
 		
 		System.out.println("cost based destination: "+destination);
 		if(destination != null)
@@ -373,7 +375,7 @@ public class ImplementAlgorithm {
 		Double destLat = Double.parseDouble(destSplit[0].replace("(","").trim());
 		Double destLong = Double.parseDouble(destSplit[1].replace(")","").trim());
 		
-		String destination = checkBlockMidPoint(destLat, destLong);
+		String destination = callCheckBlockQuadMidPoints(destLat, destLong);
 		if(destination != null)
 		{
 		destLat = Double.parseDouble(destination.split(",")[0]);
@@ -479,7 +481,7 @@ public class ImplementAlgorithm {
 		Double destLat = Double.parseDouble(destSplit[0].replace("(","").trim());
 		Double destLong = Double.parseDouble(destSplit[1].replace(")","").trim());
 		
-		String destination = checkBlockMidPoint(destLat, destLong);
+		String destination = callCheckBlockQuadMidPoints(destLat, destLong);
 		System.out.println("destination: "+ destination);
 		if(destination != null)
 		{
@@ -593,7 +595,7 @@ public class ImplementAlgorithm {
 		Double destLat = Double.parseDouble(destSplit[0].replace("(","").trim());
 		Double destLong = Double.parseDouble(destSplit[1].replace(")","").trim());
 		
-		String destination = checkBlockMidPoint(destLat, destLong);
+		String destination = callCheckBlockQuadMidPoints(destLat, destLong);
 		if(destination != null)
 		{
 		destLat = Double.parseDouble(destination.split(",")[0]);
@@ -701,7 +703,7 @@ public class ImplementAlgorithm {
 		Double destLat = Double.parseDouble(destSplit[0].replace("(","").trim());
 		Double destLong = Double.parseDouble(destSplit[1].replace(")","").trim());
 		
-		String destination = checkBlockMidPoint(destLat, destLong);
+		String destination = callCheckBlockQuadMidPoints(destLat, destLong);
 		////system.out.println("destination: "+ destination);
 		if(destination != null)
 		{

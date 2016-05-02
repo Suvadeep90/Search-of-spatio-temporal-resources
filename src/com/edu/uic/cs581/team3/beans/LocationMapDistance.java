@@ -1,27 +1,27 @@
 package com.edu.uic.cs581.team3.beans;
 
 
-public class DistanceMap {
+public class LocationMapDistance {
 
-	private Coordinates point;
+	private LocationCoordinates point;
 	private double dist;
 	
 	/*
 	 * Constructor for DistanceMap
 	 */
-	public DistanceMap()
+	public LocationMapDistance()
 	{
-		point = new Coordinates();
+		point = new LocationCoordinates();
 		dist = 0.0;
 	}
 	
 	/*getters and setters*/
 
-	public Coordinates getPoint() {
+	public LocationCoordinates getPoint() {
 		return point;
 	}
 
-	public void setPoint(Coordinates point) {
+	public void setPoint(LocationCoordinates point) {
 		this.point = point;
 	}
 
