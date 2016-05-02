@@ -35,9 +35,9 @@ import com.edu.uic.cs581.team3.database.Force;
 import com.google.gson.Gson;
 
 /**
- * Servlet implementation class InvokeAlgorithm
+ * Servlet implementation class RunAlgorithm
  */
-//@WebServlet(description = "Invokes the routing algorithm", urlPatterns = { "/InvokeAlgorithm" })
+//@WebServlet(description = "Invokes the routing algorithm", urlPatterns = { "/RunAlgorithm" })
 public class RunAlgorithm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

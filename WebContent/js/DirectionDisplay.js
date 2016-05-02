@@ -176,7 +176,7 @@
 		$(document).ready(function(){
 			$('#invokeAlgo').click(function(){
 				$.ajax({
-					url: 'InvokeAlgorithm',
+					url: 'RunAlgorithm',
 					type: 'POST',
 					datatype: 'json',
 					data: $('#invokeAlgo').serialize(),

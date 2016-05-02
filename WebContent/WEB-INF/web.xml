@@ -2,16 +2,16 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>SFPark_Team3_2016</display-name>
   <welcome-file-list>
-    <!-- <welcome-file>Deterministic.jsp</welcome-file> -->
-     <welcome-file>Probabilistic.jsp</welcome-file>
+     <welcome-file>Deterministic.jsp</welcome-file> 
+     <!--<welcome-file>Probabilistic.jsp</welcome-file> -->
   </welcome-file-list>
   <servlet>
-    <servlet-name>InvokeAlgorithm</servlet-name>
+    <servlet-name>RunAlgorithm</servlet-name>
     <servlet-class>com.edu.uic.cs581.team3.controller.RunAlgorithm</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>InvokeAlgorithm</servlet-name>
-    <url-pattern>/InvokeAlgorithm</url-pattern>
+    <servlet-name>RunAlgorithm</servlet-name>
+    <url-pattern>/RunAlgorithm</url-pattern>
   </servlet-mapping>
   <listener>
     <listener-class>

@@ -287,7 +287,7 @@
 		$(document).ready(function(){
 			$('#algoInvocation').click(function(){
 				$.ajax({
-					url: 'InvokeAlgorithm',
+					url: 'RunAlgorithm',
 					type: 'POST',
 					datatype: 'json',
 					data: {
@@ -566,7 +566,7 @@
 		<input type = "hidden" id="iteration" name="iteration" value="first"></input>
 		
 		
-		<input type="submit" id="algoInvocation" style="display: none;" value="test" onclick="InvokeAlgorithm"/> 
+		<input type="submit" id="algoInvocation" style="display: none;" value="test" onclick="RunAlgorithm"/> 
 		<input type="submit" id="stopAlgo" style="display: none;" onclick = "TerminateAlgorithm"/>
 		
 		<!-- <input type="text" id="start" value = "test"/>

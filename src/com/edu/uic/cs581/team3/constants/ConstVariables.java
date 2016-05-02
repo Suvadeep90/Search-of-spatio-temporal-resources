@@ -6,7 +6,7 @@ public class ConstVariables {
 	public static final String GAPI_Key = "AIzaSyBcS9Vt7EHMK6dY0thNQlVJcjjMORSBHIc";
 	public static final Double Threshhold_Value = 0.5;
 	public static final String Date_Format = "yyyy-MM-dd HH:mm:ss";
-	public static final String DB_Path = "jdbc:sqlserver://PRO_SURFACE3\\SQLEXPRESS:1433;databaseName=SFPark";
+	public static final String DB_Path = "jdbc:sqlserver://PRO_SURFACE3\\SQLEXPRESS:1433;databaseName=Team3_SFPark";
 	public static final String DB_Username = "ridhi";
 	public static final String DB_PWD = "ridhi129";
 	
